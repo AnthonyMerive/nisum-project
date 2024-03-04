@@ -1,0 +1,46 @@
+subprojects {
+    apply plugin: "java"
+    apply plugin: 'io.spring.dependency-management'
+
+    sourceCompatibility = JavaVersion.VERSION_19
+
+    test {
+        useJUnitPlatform()
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+
+        implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${openApiVersion}"
+        implementation "org.springdoc:springdoc-openapi-starter-webmvc-api:${openApiVersion}"
+
+        implementation 'com.h2database:h2'
+
+        implementation "org.springframework.kafka:spring-kafka:${kafkaVersion}"
+
+        compileOnly "jakarta.servlet:jakarta.servlet-api:${jakartaServletVersion}"
+
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+        testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+        testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+        testImplementation "org.projectlombok:lombok:${lombokVersion}"
+
+        testImplementation "org.assertj:assertj-core:${assertjVersion}"
+
+        testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+
+        testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+        testImplementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+}

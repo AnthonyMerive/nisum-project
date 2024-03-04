@@ -1,0 +1,15 @@
+rootProject.name = 'nisum-trace-worker'
+
+//modules:
+include ':spring-boot'
+include ':common'
+include ':usecase'
+include ':jpa-database'
+include ':kafka-receiver'
+
+//paths:
+project(':spring-boot').projectDir = file('./src/runnable/spring-boot')
+project(':common').projectDir = file('./src/domain/common')
+project(':usecase').projectDir = file('./src/domain/usecase')
+project(':jpa-database').projectDir = file('./src/infra/adapters/jpa-database')
+project(':kafka-receiver').projectDir = file('./src/infra/receivers/kafka-receiver')

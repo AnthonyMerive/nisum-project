@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:usersdb
+    driver-class-name: org.h2.Driver
+    username: admin
+    password: root
+
+  jpa:
+    open-in-view: false
+    show-sql: false
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  swagger-ui:
+    enabled: true
+    operationsSorter: method
+    path: /swagger-ui.html
+
+regexp:
+  password: "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-zA-Z]).{8,}$"
+  email: "^[A-Za-z0-9+_.-]+@(.+)$"
+
+jwt:
+  subject: nisum-user
+  secret: 61ec46be-55b2-11ee-8c99-0242ac120002
+
+kafka:
+  bootstrapAddress: localhost:9092
+  groupId: nisum-user-api
+  topic:
+    traceability: "nisum.domain.events"
+
+logging:
+  level:
+    org.apache.kafka: WARN

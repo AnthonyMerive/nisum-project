@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':usecase')
+    implementation project(':common')
+
+    implementation "com.google.code.gson:gson:${gsonVersion}"
+}

@@ -1,0 +1,11 @@
+dependencies {
+
+    implementation project(':usecase')
+    implementation project(':common')
+
+    implementation "org.json:json:${jsonVersion}"
+    implementation "io.jsonwebtoken:jjwt-api:${jsonWebTokenVerion}"
+
+    runtimeOnly "io.jsonwebtoken:jjwt-impl:${jsonWebTokenVerion}"
+    runtimeOnly "io.jsonwebtoken:jjwt-jackson:${jsonWebTokenVerion}"
+}

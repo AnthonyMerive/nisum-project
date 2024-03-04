@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:eventsdb
+    driver-class-name: org.h2.Driver
+    username: admin
+    password: root
+
+  jpa:
+    open-in-view: false
+    show-sql: false
+
+kafka:
+  bootstrapAddress: localhost:9092
+  groupId: nisum-user-api
+  offset: latest
+  topic:
+    traceability: "nisum.domain.events"
+
+logging:
+  level:
+    org.apache.kafka: WARN

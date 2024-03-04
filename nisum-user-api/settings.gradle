@@ -1,0 +1,17 @@
+rootProject.name = 'nisum-user-api'
+
+//modules:
+include ':spring-boot'
+include ':common'
+include ':usecase'
+include ':entry-points'
+include ':jpa-database'
+include ':kafka-publisher'
+
+//paths:
+project(':spring-boot').projectDir = file('./src/runnable/spring-boot')
+project(':common').projectDir = file('./src/domain/common')
+project(':usecase').projectDir = file('./src/domain/usecase')
+project(':entry-points').projectDir = file('./src/infra/receivers/entry-points')
+project(':jpa-database').projectDir = file('./src/infra/adapters/jpa-database')
+project(':kafka-publisher').projectDir = file('./src/infra/adapters/kafka-publisher')

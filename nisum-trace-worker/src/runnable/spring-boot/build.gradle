@@ -1,0 +1,14 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+
+	implementation project(":usecase")
+	implementation project(":common")
+	implementation project(":jpa-database")
+	implementation project(":kafka-receiver")
+
+	implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+	implementation "org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}"
+
+	runtimeOnly "org.springframework.boot:spring-boot-devtools:${springBootVersion}"
+}
