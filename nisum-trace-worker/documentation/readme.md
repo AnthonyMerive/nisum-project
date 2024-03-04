@@ -19,7 +19,7 @@
 
 | Nombre         | Ruta                                                                | Rama   |
 |----------------|---------------------------------------------------------------------|--------|
-| nisum-user-api | <https://github.com/AnthonyMerive/nisum-project/nisum-trace-worker> | Master |
+| nisum-user-api | https://github.com/AnthonyMerive/nisum-project/tree/main/nisum-trace-worker | Main |
 
 - [x] Contar con el JDK y JRE debidamente instalados en el sistema y configurados en las variables de entorno correctamente:
   - **JDK:**
