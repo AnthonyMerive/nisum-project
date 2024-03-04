@@ -6,11 +6,11 @@
 
 # Tabla de contenido
 
-- [Descripción de la necesidad](#Descripción de la necesidad)
+- [Descripción de la necesidad](#Descripcion-de-la-necesidad)
 - [Requsitos](#Requsitos)
 - [Escenarios](#Escenarios)
 
-## Descripción de la necesidad
+## Descripcion de la necesidad
 
 **¿Qué?** Desarrollar una aplicación que exponga una API para la gestion de usuarios</br>
 
@@ -59,7 +59,7 @@
 
 | Nombre         | Ruta                                                              | Rama   |
 |----------------|-------------------------------------------------------------------|--------|
-| nisum-user-api | <https://github.com/AnthonyMerive/nisum-project/nisum-user-api>   | Master |
+| nisum-user-api | https://github.com/AnthonyMerive/nisum-project/tree/main/nisum-user-api | Main |
 
 - [x] Contar con el JDK y JRE debidamente instalados en el sistema y configurados en las variables de entorno correctamente:
     - **JDK:**
