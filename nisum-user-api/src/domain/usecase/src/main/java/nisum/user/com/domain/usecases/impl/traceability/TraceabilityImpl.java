@@ -5,7 +5,6 @@ import lombok.extern.java.Log;
 import nisum.user.com.domain.common.port.PublisherPort;
 import nisum.user.com.domain.common.traceability.TraceabilityService;
 import nisum.user.com.domain.usecases.impl.traceability.util.MessageBuilder;
-import org.springframework.beans.factory.annotation.Value;
 
 import java.util.logging.Level;
 
