@@ -5,11 +5,12 @@ import lombok.extern.java.Log;
 import nisum.user.com.domain.common.port.PublisherPort;
 import nisum.user.com.domain.common.traceability.TraceabilityService;
 import nisum.user.com.domain.usecases.impl.traceability.util.MessageBuilder;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.logging.Level;
 
 @Log
-public record TraceabilityImpl(PublisherPort publisher)
+public record TraceabilityImpl(PublisherPort publisher, Boolean traceabilityEnable)
         implements TraceabilityService<Object>, MessageBuilder<String> {
 
     @Override
@@ -20,7 +21,8 @@ public record TraceabilityImpl(PublisherPort publisher)
         var successMessage = buildSuccessMessage(serializedData, operation);
         var message = gson.toJson(successMessage);
 
-        publisher.sendMessage(message);
+        if(Boolean.TRUE.equals(traceabilityEnable)) publisher.sendMessage(message);
+
         log.log(Level.INFO, "DomainEvent emitted: " + message);
     }
 
@@ -32,7 +34,8 @@ public record TraceabilityImpl(PublisherPort publisher)
         var errorMessage = buildErrorMessage(serializedData, operation, exception);
         var message = gson.toJson(errorMessage);
 
-        publisher.sendMessage(message);
+        if(Boolean.TRUE.equals(traceabilityEnable)) publisher.sendMessage(message);
+
         log.log(Level.SEVERE, "DomainEvent emitted: " + message);
     }
 }

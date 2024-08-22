@@ -35,6 +35,9 @@ kafka:
   topic:
     traceability: "nisum.domain.events"
 
+traceability:
+  enable: false
+
 logging:
   level:
     org.apache.kafka: WARN

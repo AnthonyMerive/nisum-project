@@ -27,6 +27,9 @@ public class TraceabilityConfig {
     @Value(value = "${kafka.groupId}")
     private String groupId;
 
+    @Value(value = "${traceability.enable}")
+    private Boolean traceabilityEnable;
+
     @Bean
     public ProducerFactory<String, String> producer() {
         Map<String, Object> configProps = new HashMap<>();
@@ -49,6 +52,6 @@ public class TraceabilityConfig {
 
     @Bean
     public TraceabilityService<Object> traceabilityService(PublisherPort publisherPort) {
-        return new TraceabilityImpl(publisherPort);
+        return new TraceabilityImpl(publisherPort, traceabilityEnable);
     }
 }

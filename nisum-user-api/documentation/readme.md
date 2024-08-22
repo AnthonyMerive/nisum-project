@@ -68,6 +68,8 @@
 
 - [x] Contar con un Entorno de Desarrollo Integrado (IDE) IntelliJ IDEA (preferiblemente).
 - [x] Tener instalada la aplicación Postman (https://www.postman.com/downloads/).
+- [x] Descargar e instalar los binarios de kafka o en su defecto desplegar a traves de una imagen de docker kafka, al hacerlo se debe crear un topico de nombre: 'nisum.domain.events'
+
 
 ### Ejecución del servicio:
 - [x] Descargar el proyecto desde el repositorio como zip.
@@ -82,7 +84,8 @@
       - **JDBC URL:** jdbc:h2:mem:usersdb
       - **User Name:** admin
       - **Password:** root
-- [x] Descargar e instalar los binarios de kafka o en su defecto desplegar a traves de una imagen de docker kafka, al hacerlo se debe crear un topico de nombre: 'nisum.domain.events'
+
+**IMPORTANTE:** Si no se quiere instalar kafka y evitar la funcionalidad de '**nisum-trace-worker**' se puede dejar en '**false**' la propiedad del application.yaml '**traceability.enable**'
 
 ## Escenarios
 
