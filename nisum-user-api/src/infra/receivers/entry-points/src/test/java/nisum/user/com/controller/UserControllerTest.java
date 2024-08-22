@@ -47,7 +47,7 @@ class UserControllerTest implements ResponseBuilder {
         var result = controller.saveUser(request, TEST);
 
         Assertions.assertNotNull(result);
-        Assertions.assertEquals(result.getStatusCode(), HttpStatusCode.valueOf(200));
+        Assertions.assertEquals(result.getStatusCode(), HttpStatusCode.valueOf(201));
         Assertions.assertEquals(Objects.requireNonNull(result.getBody()).getData().getEmail(), Objects.requireNonNull(expect.getBody()).getData().getEmail());
     }
 

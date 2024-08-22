@@ -1,9 +1,13 @@
 package nisum.user.com.controller.util;
 
 import nisum.user.com.controller.dto.ResponseDTO;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.util.Objects;
 import java.util.UUID;
+
+import static nisum.user.com.controller.util.ResponseMessageEnum.*;
 
 public interface ResponseBuilder {
 
@@ -12,54 +16,57 @@ public interface ResponseBuilder {
                 ResponseDTO.<T>builder()
                         .transactionId(UUID.randomUUID().toString())
                         .message(message)
-                        .code(200)
+                        .code(HttpStatus.OK.value())
                         .data(data)
                         .build());
     }
 
     default <T> ResponseEntity<ResponseDTO<T>> build201Response(T data) {
-        return ResponseEntity.ok(
+        return ResponseEntity.status(HttpStatus.CREATED.value()).body((
                 ResponseDTO.<T>builder()
                         .transactionId(UUID.randomUUID().toString())
-                        .message("Success creation")
-                        .code(201)
+                        .message(SUCCESS.getMessage())
+                        .code(HttpStatus.CREATED.value())
                         .data(data)
-                        .build());
+                        .build()));
     }
 
     default <T> ResponseEntity<ResponseDTO<T>> build404Response() {
-        return ResponseEntity.status(404).body(
+        return ResponseEntity.status(HttpStatus.NOT_FOUND.value()).body(
                 ResponseDTO.<T>builder()
                         .transactionId(UUID.randomUUID().toString())
-                        .message("User not found")
-                        .code(404)
+                        .message(USER_NOT_FOUND.getMessage())
+                        .code(HttpStatus.NOT_FOUND.value())
                         .build());
     }
 
     default <T> ResponseEntity<ResponseDTO<T>> build400Response(String message) {
-        return ResponseEntity.status(400).body(
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST.value()).body(
                 ResponseDTO.<T>builder()
                         .transactionId(UUID.randomUUID().toString())
                         .message(message)
-                        .code(400)
+                        .code(HttpStatus.BAD_REQUEST.value())
                         .build());
     }
 
     default <T> ResponseEntity<ResponseDTO<T>> build401Response() {
-        return ResponseEntity.status(401).body(
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED.value()).body(
                 ResponseDTO.<T>builder()
                         .transactionId(UUID.randomUUID().toString())
-                        .message("Invalid Token")
-                        .code(401)
+                        .message(INVALID_TOKEN.getMessage())
+                        .code(HttpStatus.UNAUTHORIZED.value())
                         .build());
     }
 
     default <T> ResponseEntity<ResponseDTO<T>> build500Response(String exception) {
-        return ResponseEntity.status(500).body(
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR.value()).body(
                 ResponseDTO.<T>builder()
                         .transactionId(UUID.randomUUID().toString())
-                        .message("Unhandled exception: " + exception)
-                        .code(500)
+                        .message(UNHANDLED_EXCEPTION.getMessage()
+                                .concat(Objects.requireNonNullElse(
+                                        exception,
+                                        NO_ERROR_DESCRIPTION.getMessage())))
+                        .code(HttpStatus.INTERNAL_SERVER_ERROR.value())
                         .build());
     }
 }

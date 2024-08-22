@@ -3,11 +3,11 @@ package nisum.user.com.domain.common.exception;
 public class BusinessException extends ApplicationException {
 
     public enum Type {
-        USER_EXIST("USER EXIST IN DATABASE"),
-        EMAIL_INVALID("THE EMAIL FORMAT IS INVALID"),
-        PASSWORD_INVALID("INSECURE PASSWORD"),
-        USER_NO_EXIST("USER NO EXIST IN DATABASE"),
-        PHONE_NUMBER_EXIST("THE PHONE NUMBER EXIST IN OTHER USER")
+        USER_EXIST(BusinessExceptionEnum.USER_EXIST.getMessage()),
+        EMAIL_INVALID(BusinessExceptionEnum.EMAIL_INVALID.getMessage()),
+        PASSWORD_INVALID(BusinessExceptionEnum.PASSWORD_INVALID.getMessage()),
+        USER_NO_EXIST(BusinessExceptionEnum.USER_NO_EXIST.getMessage()),
+        PHONE_NUMBER_EXIST(BusinessExceptionEnum.PHONE_NUMBER_EXIST.getMessage())
         ;
 
         private final String message;
