@@ -57,8 +57,8 @@
 
 - [x] Verificar el repositorio y políticas de acceso
 
-| Nombre         | Ruta                                                              | Rama   |
-|----------------|-------------------------------------------------------------------|--------|
+| Nombre         | Ruta                                                                    | Rama |
+|----------------|-------------------------------------------------------------------------|------|
 | nisum-user-api | https://github.com/AnthonyMerive/nisum-project/tree/main/nisum-user-api | Main |
 
 - [x] Contar con el JDK y JRE debidamente instalados en el sistema y configurados en las variables de entorno correctamente:
@@ -131,7 +131,7 @@ Authorization: con Bearer Token
 {
     "transactionId": "08f392f7-7245-4b90-9db1-6c2ee198c707",
     "code": 201,
-    "message": "Success creation",
+    "message": "Success",
     "data": {
         "name": "Miguel Mendez",
         "email": "miguel.mendez@nisum.com",
@@ -214,7 +214,7 @@ Email: con el email que se desea buscar
     {
     "transactionId": "3cbe7437-5e0b-42f3-aaa3-9e0a3b9b72f6",
     "code": 200,
-    "message": "Success get",
+    "message": "Success",
     "data": {
         "name": "Miguel Mendez",
         "email": "miguel.mendez@nisum.com",
@@ -267,7 +267,7 @@ Authorization: con Bearer Token
 {
     "transactionId": "8af07314-cd2e-456a-9e3a-20a2ec8f5048",
     "code": 200,
-    "message": "Success get",
+    "message": "Success",
     "data": [
         {
             "name": "Pedro Perez",
@@ -342,7 +342,7 @@ Authorization: con Bearer Token
 {
     "transactionId": "dfe022f8-05cd-4162-9372-9af5d6ee4d1d",
     "code": 200,
-    "message": "Success update",
+    "message": "Success",
     "data": {
         "name": "Juan Rodriguez",
         "email": "juan.rodriguez@nisum.com",
@@ -413,7 +413,7 @@ Email: con el email que desea eliminar
 {
     "transactionId": "e9bdc92b-50aa-41a0-a8c8-bf95b8c919fc",
     "code": 200,
-    "message": "Success delete",
+    "message": "Success",
     "data": {
         "name": "Miguel Mendez",
         "email": "miguel.mendez@nisum.com",
